@@ -14,30 +14,30 @@ import android.widget.RelativeLayout;
  */
 
 public class ProportionalRelativeLayout extends RelativeLayout {
-
+	
 	public ProportionalRelativeLayout(Context context) {
 		super(context);
 	}
-
+	
 	public ProportionalRelativeLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(attrs);
 	}
-
+	
 	public ProportionalRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init(attrs);
 	}
-
+	
 	@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 	public ProportionalRelativeLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
 		init(attrs);
 	}
-
+	
 	private float widthScale;
 	private float heightScale;
-
+	
 	private void init(AttributeSet attributeSet) {
 		if (attributeSet != null) {
 			TypedArray array = getContext().obtainStyledAttributes(attributeSet, R.styleable.ScaleLayout);
@@ -46,18 +46,18 @@ public class ProportionalRelativeLayout extends RelativeLayout {
 			array.recycle();
 		}
 	}
-
+	
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 		int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-
+		
 		int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 		int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-
+		
 		int widthParam  = getLayoutParams().width;
 		int heightParam = getLayoutParams().height;
-
+		
 		if (widthScale > 0 && heightScale > 0) {
 			if (widthParam != ViewGroup.LayoutParams.WRAP_CONTENT) {
 				heightSize = (int) (widthSize / widthScale * heightScale);
@@ -69,20 +69,18 @@ public class ProportionalRelativeLayout extends RelativeLayout {
 		}
 		super.onMeasure(MeasureSpec.makeMeasureSpec(widthSize, widthMode), MeasureSpec.makeMeasureSpec(heightSize, heightMode));
 	}
-
+	
 	public float getWidthScale() {
 		return widthScale;
 	}
-
-	public void setWidthScale(float widthScale) {
-		this.widthScale = widthScale;
-	}
-
+	
 	public float getHeightScale() {
 		return heightScale;
 	}
-
-	public void setHeightScale(float heightScale) {
+	
+	public void setScale(float heightScale, float widthScale) {
 		this.heightScale = heightScale;
+		this.widthScale = widthScale;
+		requestLayout();
 	}
 }

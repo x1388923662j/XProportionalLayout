@@ -69,20 +69,18 @@ public class ProportionalLinearLayout extends LinearLayout {
 		}
 		super.onMeasure(MeasureSpec.makeMeasureSpec(widthSize, widthMode), MeasureSpec.makeMeasureSpec(heightSize, heightMode));
 	}
-
+	
 	public float getWidthScale() {
 		return widthScale;
 	}
-
-	public void setWidthScale(float widthScale) {
-		this.widthScale = widthScale;
-	}
-
+	
 	public float getHeightScale() {
 		return heightScale;
 	}
-
-	public void setHeightScale(float heightScale) {
+	
+	public void setScale(float heightScale, float widthScale) {
 		this.heightScale = heightScale;
+		this.widthScale = widthScale;
+		requestLayout();
 	}
 }
