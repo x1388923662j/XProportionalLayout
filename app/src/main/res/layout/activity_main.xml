@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.xuzhijun.proportionaldemo.MainActivity">
+
+
+    <cn.xuzhijun.proportional.ProportionalFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#123456"
+        app:scaleHeight="9"
+        app:scaleWidth="16">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="width=match_parent\nheight=wrap_content\n16:9"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"/>
+
+    </cn.xuzhijun.proportional.ProportionalFrameLayout>
+
+    <cn.xuzhijun.proportional.ProportionalLinearLayout
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="#654321"
+        android:gravity="center"
+        app:scaleHeight="4"
+        app:scaleWidth="5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="width=170dp\nheight=wrap_content\n5:4"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+        <cn.xuzhijun.proportional.ProportionalImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"
+            app:scaleHeight="1"
+            app:scaleWidth="1"
+            />
+
+    </cn.xuzhijun.proportional.ProportionalLinearLayout>
+
+    <cn.xuzhijun.proportional.ProportionalRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#987654"
+        app:scaleHeight="2"
+        app:scaleWidth="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="width=wrap_content\nheight=match_parent\n1:2"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+    </cn.xuzhijun.proportional.ProportionalRelativeLayout>
+</LinearLayout>
